@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
+from .models import CustomerProfile
+
 
 User = get_user_model()
 
@@ -37,3 +39,10 @@ class UserSerializer(serializers.ModelSerializer):
             "id", "role",
         ]
 
+
+class CustomerProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomerProfile
+        fields = [
+            "date_of_birth", "address",
+        ]
